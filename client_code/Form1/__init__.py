@@ -11,23 +11,34 @@ class Form1(Form1Template):
 
   def csv_uploader_change(self, file, **event_args):
     """This method is called when a file is loaded into the csv_uploader."""
-    # Call the server function to process the uploaded file
+    # Call the server function to process the uploaded file and populate the target_variable_picker
     categorical_features = anvil.server.call('process_data', file)
-    
-    # Populate the target_variable_picker with the list of categorical features
     self.target_variable_picker.items = categorical_features
 
+  def target_variable_picker_show(self, **event_args):
+      """This method is called when a target variable is selected."""
+      # Call the server function to get unique values for the selected target variable and populate the class_picker dropdown
+      unique_values = anvil.server.call('get_unique_values_for_feature', self.target_variable_picker.selected_value)
+      self.class_picker.items = unique_values
+
+
+  
+
+
   def submit_button_for_processing_click(self, **event_args):
-    """This method is called when the submit_button_for_processing is clicked."""
-    # Call the server function to process the data, train the model, and get SHAP values
-    plot_media, shap_summary_data = anvil.server.call('train_and_get_shap', self.csv_uploader.file, self.target_variable_picker.selected_value)
-    
-    # Display the SHAP summary plot in the shap_displayer
-    self.shap_summary_displayer.source = plot_media
-    
-    # If you have a DataGrid or other component to display the SHAP summary DataFrame, you can set its items here
-    # For example:
-    # self.data_grid_1.items = shap_summary_data
+      """This method is called when the get_shap_for_class_button is clicked."""
+      # Call the server function to get the SHAP summary plot for the selected class
+      plot_media = anvil.server.call('train_and_get_shap', self.target_variable_picker.selected_value, self.class_picker.selected_value)
+      
+      # Display the SHAP summary plot in the shap_displayer
+      self.shap_summary_displayer.source = plot_media
+
+
+
+
+
+
+
 
 
 

@@ -17,13 +17,19 @@ components:
     properties: {}
     name: target_variable_picker
     layout_properties: {grid_position: 'EZRXES,LAIOVI'}
+    event_bindings: {show: target_variable_picker_show}
+  - type: DropDown
+    properties: {}
+    name: class_picker
+    layout_properties: {grid_position: 'NGTTWY,VNSQIO'}
+    event_bindings: {}
   - type: Button
     properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: Click for Processing, font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: submit_button_for_processing
-    layout_properties: {grid_position: 'NGTTWY,SBQHNU'}
+    layout_properties: {grid_position: 'IDHHNF,BBOUBI'}
     event_bindings: {click: submit_button_for_processing_click}
   - type: Image
     properties: {height: 611}
