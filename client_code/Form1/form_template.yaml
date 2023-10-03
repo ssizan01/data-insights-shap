@@ -7,7 +7,28 @@ components:
   properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
-  components: []
+  components:
+  - type: FileLoader
+    properties: {}
+    name: csv_uploader
+    layout_properties: {grid_position: 'ZEOHKO,EWODVK'}
+    event_bindings: {change: csv_uploader_change}
+  - type: DropDown
+    properties: {}
+    name: target_variable_picker
+    layout_properties: {grid_position: 'EZRXES,LAIOVI'}
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Click for Processing, font_size: null,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: submit_button_for_processing
+    layout_properties: {grid_position: 'NGTTWY,SBQHNU'}
+    event_bindings: {click: submit_button_for_processing_click}
+  - type: Image
+    properties: {}
+    name: shap_summary_displayer
+    layout_properties: {grid_position: 'IDHHNF,ZPWJBF'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
