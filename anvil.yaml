@@ -1,15 +1,16 @@
-allow_embedding: false
-package_name: data_insights_shap
-name: data_insights_shap
-startup_form: Form1
-renamed: true
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-full
-  server_spec: {base: python310-standard}
 dependencies: []
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
+package_name: data_insights_shap
+allow_embedding: false
+name: data_insights_shap
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-full
+  server_spec: {base: python310-standard}
+startup_form: Form1
+uplink_visible: true
+renamed: true
