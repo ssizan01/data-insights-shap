@@ -9,8 +9,9 @@ name: data_insights_shap
 runtime_options:
   version: 2
   client_version: '3'
-  server_version: python3-full
-  server_spec: {base: python310-standard}
+  server_version: python3-sandbox
+  server_spec: {base: python310-datascience}
+  server_spec_disabled: {base: python310-datascience, requirements: ''}
 startup_form: Form1
 uplink_visible: true
 renamed: true
