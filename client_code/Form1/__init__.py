@@ -29,7 +29,7 @@ class Form1(Form1Template):
   def submit_button_for_processing_click(self, **event_args):
       """This method is called when the get_shap_for_class_button is clicked."""
       # Call the server function to get the SHAP summary plot for the selected class
-      plot_media, shap_summary_data = anvil.server.call('train_and_get_shap', self.target_variable_picker.selected_value, self.class_picker.selected_value)
+      plot_media = anvil.server.call('train_and_get_shap', self.target_variable_picker.selected_value, self.class_picker.selected_value)
       self.shap_summary_displayer.source = plot_media
 
 
