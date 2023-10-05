@@ -1,11 +1,22 @@
 from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server
+from anvil.js.window import navigator
 
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+    # Get browser details directly using navigator.userAgent
+    browser_details = navigator.userAgent
+    
+    # Get IP address using httpbin
+    response = anvil.http.request("https://httpbin.org/ip", method="GET", json=True)
+    ip_address = response['origin']
+    
+    # Now you can use browser_details and ip_address as needed
+    print(browser_details, ip_address)
 
     # Any code you write here will run before the form opens.
   def handle_single_target_variable(self):
